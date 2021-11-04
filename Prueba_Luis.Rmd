@@ -1,0 +1,51 @@
+---
+title: "Análisis exploratorio de datos"
+author: "Luis Espinoza"
+date: "3/11/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+#install.packages("readxl")
+#install.packages("dplyr")
+#install.packages("ggplot2")
+#install.packages("knitr")
+
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+
+```
+
+```{r}
+sargo<-read_excel("Sobrevivencia.xlsx",sheet=1)
+```
+
+
+
+
+```{r}
+ggplot(sargo, aes(x=Sobrevivencia))+
+geom_histogram(bins=10)  
+
+
+
+```
+# Grafico boxplot del tiempo y densidad
+
+```{r}
+ggplot(sargo, aes(y=Sobrevivencia, x=Tiempo))+
+  geom_boxplot()
+  
+ggplot(sargo, aes(y=Sobrevivencia, x=Densidad))+
+  geom_boxplot()
+    
+  
+```
+
+
+
+
