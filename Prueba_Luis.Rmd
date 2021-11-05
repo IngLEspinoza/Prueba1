@@ -19,7 +19,7 @@ library(ggplot2)
 library(knitr)
 
 ```
-
+# Grafico histograma de sobrevivencia
 ```{r}
 sargo<-read_excel("Sobrevivencia.xlsx",sheet=1)
 ```
@@ -37,10 +37,10 @@ geom_histogram(bins=10)
 # Grafico boxplot del tiempo y densidad
 
 ```{r}
-ggplot(sargo, aes(y=Sobrevivencia, x=Tiempo))+
+ggplot(sargo, aes(y=Sobrevivencia, x=Tiempo, fill=Tiempo))+
   geom_boxplot()
   
-ggplot(sargo, aes(y=Sobrevivencia, x=Densidad))+
+ggplot(sargo, aes(y=Sobrevivencia, x=Densidad,fill=Densidad))+
   geom_boxplot()
     
   
