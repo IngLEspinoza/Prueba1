@@ -34,6 +34,16 @@ geom_histogram(bins=10)
 
 
 ```
+
+```{r}
+Tabla<-table(sargo$Tiempo)
+Tabla%>%knitr::kable(caption = "numero de datos")
+
+Tabla1<-table(sargo$Densidad)
+Tabla1%>%knitr::kable(caption = "numero de datos")
+```
+Los datos de densidad y tiempo si estan balanceados
+
 # Grafico boxplot del tiempo y densidad
 
 ```{r}
@@ -45,7 +55,34 @@ ggplot(sargo, aes(y=Sobrevivencia, x=Densidad,fill=Densidad))+
     
   
 ```
+De acuerdo al grafico que precede, no hay diferencia en lo que relaciona a la sobrevivencia con la densidad
 
+De acuerdo al grafico que relaciona la sobrevivencia con el tiempo, se puede mencionar que hay diferencias entre las 10 y 12 horas versus lo que corresponde a las 8 horas.
 
+# Datos atipicos
+
+Segun la grafica boxplot de tiempo se observa un dato atipico que corresponde al tratamiento de las 8 horas
+
+Segun la grafica boxplot de densidad se observa un dato atipico que corresponde al tratamiento de la densidad de 6 peces
+
+# estadistica descriptiva
+```{r}
+summary(sargo)
+
+str(sargo)
+head(sargo)
+tail(sargo)
+
+Tabla2<-head(sargo)
+Tabla2%>%knitr::kable(caption = "datos iniciales de la tabla")
+
+Tabla3<-tail(sargo)
+Tabla3%>%knitr::kable(caption = "datos finales de la tabla")
+
+Tabla4<-sargo%>%
+  filter(Tiempo=="12_h")%>%
+  summarize(mean(Sobrevivencia),sd(Sobrevivencia))
+Tabla4%>%knitr::kable(caption = "promedio y desviacion standar")
+```
 
 
